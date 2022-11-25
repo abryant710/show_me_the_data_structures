@@ -19,22 +19,28 @@ All operations must take O(1) time.
 
 For the current problem, you can consider the size of cache = 5.
 
-Here is some boiler plate code and some example test cases to get you started on this problem:
 """
 
 
 class LRU_Cache(object):
     def __init__(self, capacity):
-        # Initialize class variables
-        pass
+        self.capacity = capacity
+        self.cache = {}
 
     def get(self, key):
         # Retrieve item from provided key. Return -1 if nonexistent.
-        pass
+        if key in self.cache:
+            return self.cache[key]
+        return -1
 
     def set(self, key, value):
         # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item.
-        pass
+        if key in self.cache:
+            self.cache[key] = value
+        else:
+            if len(self.cache) == self.capacity:
+                self.cache.popitem()
+            self.cache[key] = value
 
 
 our_cache = LRU_Cache(5)
@@ -58,7 +64,44 @@ our_cache.get(3)  # returns -1 because the cache reached it's capacity and 3 was
 # and two of them must include edge cases, such as null, empty or very large values
 
 # Test Case 1
+# Test for empty cache
+def test_01():
+    test_cache = LRU_Cache(5)
+
+    print("Test Case 1 - Pass") if test_cache.get(1) == -1 else print("Fail")
+
+
+test_01()
 
 # Test Case 2
+# Test for None key and value
+def test_02():
+    test_cache = LRU_Cache(5)
+
+    test_cache.set(None, None)
+
+    print("Test Case 2 - Pass") if test_cache.get(None) == None else print("Fail")
+
+
+test_02()
 
 # Test Case 3
+# Test for Large keys and values
+def test_03():
+    test_cache = LRU_Cache(5)
+
+    test_cache.set(100000, 100000)
+    test_cache.set(200000, 200000)
+    test_cache.set(-400000, "Negative")
+    test_cache.set(-500000, "Also negative")
+
+    test_cache.get(100000)
+    test_cache.get(200000)
+    test_cache.get(-300000)
+
+    print("Test Case 3a - Pass") if test_cache.get(100000) == 100000 else print("Fail")
+    print("Test Case 3b - Pass") if test_cache.get(200000) == 200000 else print("Fail")
+    print("Test Case 3c - Pass") if test_cache.get(-300000) == -1 else print("Fail")
+
+
+test_03()
