@@ -68,7 +68,8 @@ our_cache.get(3)  # returns -1 because the cache reached it's capacity and 3 was
 def test_01():
     test_cache = LRU_Cache(5)
 
-    print("Test Case 1 - Pass") if test_cache.get(1) == -1 else print("Fail")
+    assert test_cache.get(1) == -1, print("Fail")
+    print("Test Case 1 - Pass")
 
 
 test_01()
@@ -80,7 +81,8 @@ def test_02():
 
     test_cache.set(None, None)
 
-    print("Test Case 2 - Pass") if test_cache.get(None) == None else print("Fail")
+    assert test_cache.get(None) == None, print("Fail")
+    print("Test Case 2 - Pass")
 
 
 test_02()
@@ -99,9 +101,10 @@ def test_03():
     test_cache.get(200000)
     test_cache.get(-300000)
 
-    print("Test Case 3a - Pass") if test_cache.get(100000) == 100000 else print("Fail")
-    print("Test Case 3b - Pass") if test_cache.get(200000) == 200000 else print("Fail")
-    print("Test Case 3c - Pass") if test_cache.get(-300000) == -1 else print("Fail")
+    assert test_cache.get(100000) == 100000, print("Fail")
+    assert test_cache.get(200000) == 200000, print("Fail")
+    assert test_cache.get(-300000) == -1, print("Fail")
+    print("Test Case 3 - Pass")
 
 
 test_03()
