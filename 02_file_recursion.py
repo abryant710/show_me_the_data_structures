@@ -104,8 +104,6 @@ def test_01():
     print("Test Case 1 Passed")
 
 
-test_01()
-
 # Find cases of .c file extension in a subdirectory
 # Test Case 2
 def test_02():
@@ -115,17 +113,12 @@ def test_02():
     print("Test Case 2 Passed")
 
 
-test_02()
-
 # Testing case where None is passed as suffix
 # Test Case 3
 def test_03():
     files = find_files(None, "./testdir")
     assert files == None, "Test Case 3 Failed"
     print("Test Case 3 Passed")
-
-
-test_03()
 
 
 # Testing case where None is passed as path
@@ -136,9 +129,6 @@ def test_04():
     print("Test Case 4 Passed")
 
 
-test_04()
-
-
 # Testing case where a non-existent path is passed
 # Test Case 5
 def test_05():
@@ -147,4 +137,9 @@ def test_05():
     print("Test Case 5 Passed")
 
 
-test_05()
+if __name__ == "__main__":
+    test_01()
+    test_02()
+    test_03()
+    test_04()
+    test_05()

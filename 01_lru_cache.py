@@ -43,22 +43,23 @@ class LRU_Cache(object):
             self.cache[key] = value
 
 
-our_cache = LRU_Cache(5)
+def included_test():
+    our_cache = LRU_Cache(5)
 
-our_cache.set(1, 1)
-our_cache.set(2, 2)
-our_cache.set(3, 3)
-our_cache.set(4, 4)
+    our_cache.set(1, 1)
+    our_cache.set(2, 2)
+    our_cache.set(3, 3)
+    our_cache.set(4, 4)
 
+    our_cache.get(1)  # returns 1
+    our_cache.get(2)  # returns 2
+    our_cache.get(9)  # returns -1 because 9 is not present in the cache
 
-our_cache.get(1)  # returns 1
-our_cache.get(2)  # returns 2
-our_cache.get(9)  # returns -1 because 9 is not present in the cache
+    our_cache.set(5, 5)
+    our_cache.set(6, 6)
 
-our_cache.set(5, 5)
-our_cache.set(6, 6)
+    our_cache.get(3)  # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
 
-our_cache.get(3)  # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
 
 # Add your own test cases: include at least three test cases
 # and two of them must include edge cases, such as null, empty or very large values
@@ -72,8 +73,6 @@ def test_01():
     print("Test Case 1 - Pass")
 
 
-test_01()
-
 # Test Case 2
 # Test for None key and value
 def test_02():
@@ -84,8 +83,6 @@ def test_02():
     assert test_cache.get(None) == None, print("Fail")
     print("Test Case 2 - Pass")
 
-
-test_02()
 
 # Test Case 3
 # Test for Large keys and values
@@ -107,4 +104,8 @@ def test_03():
     print("Test Case 3 - Pass")
 
 
-test_03()
+if __name__ == "__main__":
+    included_test()
+    test_01()
+    test_02()
+    test_03()
