@@ -50,6 +50,12 @@ class Block:
         self.hash = self.calc_hash()
 
     def calc_hash(self):
+        """
+        Time complexity: O(1)
+        since the generation of the hash is a constant time operation and is independent of the size of the data
+        Space complexity: O(1)
+        since the hash is a constant size
+        """
         sha = hashlib.sha256()
         hash_str = "We are going to encode this string of data!".encode("utf-8")
         sha.update(hash_str)
@@ -67,6 +73,12 @@ class BlockChain:
         self.length = 0
 
     def append(self, timestamp, data):
+        """
+        Time complexity: O(1)
+        since we are appending to the end of the linked list and are keeping track of the tail, so is a constant time operation
+        Space complexity: O(n)
+        where n is the number of entries in the blockchain
+        """
         if self.head is None:
             self.head = Block(timestamp, data, None)
             self.tail = self.head

@@ -145,6 +145,15 @@ class HuffmanTree:
         """
         Encodes a string using Huffman encoding.
 
+        Time Complexity: O(n log n)
+        since we need to traverse the entire string to build the frequency table,
+        and then we need to traverse the frequency table to build the priority queue,
+        and then we need to traverse the priority queue to build the Huffman tree,
+        and then we need to traverse the Huffman tree to build the code table (in calc_encoded_data function),
+        and then we need to traverse the entire string to build the encoded data (in calc_encoded_data function).
+        Space Complexity: O(n)
+        since we need to store the frequency table, priority queue, Huffman tree, and code table.
+
         Args:
             data: string to be encoded
 
@@ -190,6 +199,11 @@ class HuffmanTree:
     def huffman_decoding(data, tree):
         """
         Decodes a string using Huffman encoding.
+
+        Time Complexity: O(n)
+        since we need to traverse the entire encoded data to decode it.
+        Space Complexity: O(n)
+        since we need to store the decoded string.
 
         Args:
             data: encoded string to be decoded

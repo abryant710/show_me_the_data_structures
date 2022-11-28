@@ -28,12 +28,24 @@ class LRU_Cache(object):
         self.cache = {}
 
     def get(self, key):
+        """
+        Time complexity: O(1)
+        since we are using a dictionary to store the cache, and the lookup time for a dictionary is O(1)
+        Space complexity: O(n)
+        where n is the capacity of the cache
+        """
         # Retrieve item from provided key. Return -1 if nonexistent.
         if key in self.cache:
             return self.cache[key]
         return -1
 
     def set(self, key, value):
+        """
+        Time complexity: O(1)
+        since we are using a dictionary to store the cache, and the lookup time for a dictionary is O(1),
+        Space complexity: O(n)
+        where n is the capacity of the cache
+        """
         # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item.
         if key in self.cache:
             self.cache[key] = value

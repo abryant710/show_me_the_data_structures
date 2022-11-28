@@ -63,13 +63,18 @@ class LinkedList:
         return out_list
 
 
-# Find the union of two linked lists
-# Time complexity: O(n + m)
-# Because we are iterating through both linked lists,
-# and also using a hash table and iterating through it, the time complexity is O(n + m + k)
-# Space complexity: O(n + m + k)
-# This is worst case only as we don't know the size of the union
 def union(llist_1, llist_2):
+    """
+    Find the union of two linked lists
+
+    Time complexity: O(n + m)
+    Because we are iterating through both linked lists,
+    and also using a hash table and iterating through it, the time complexity is O(n + m + k)
+    Space complexity: O(n + m + k)
+    This is worst case only as we don't know the size of the union
+
+    return: A linked list containing the union of the two linked lists
+    """
     hash_table = {}
     union_list = LinkedList()
     while llist_1.head:
@@ -83,13 +88,18 @@ def union(llist_1, llist_2):
     return union_list
 
 
-# Find the intersection of two linked lists
-# Time complexity: O(n + m)
-# Because we are iterating through both linked lists,
-# and also using a hash table and iterating through it, the time complexity is O(n + m + k1 + k2)
-# Space complexity: O(n + m + k1 + k2)
-# This is worst case only as we don't know the size of the intersection
 def intersection(llist_1, llist_2):
+    """
+    Find the intersection of two linked lists
+
+    Time complexity: O(n + m)
+    Because we are iterating through both linked lists,
+    and also using a hash table and iterating through it, the time complexity is O(n + m + k1 + k2)
+    Space complexity: O(n + m + k1 + k2)
+    This is worst case only as we don't know the size of the intersection
+
+    return: A linked list containing the intersection of the two linked lists
+    """
     hash_list_1 = {}
     hash_list_2 = {}
     intersection_list = LinkedList()

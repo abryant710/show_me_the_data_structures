@@ -64,6 +64,11 @@ def find_files(suffix, path):
 
     There are no limit to the depth of the subdirectories can be.
 
+    Time complexity: O(n)
+    since we are iterating through all files in the directory
+    Space complexity: O(n)
+    since we are potentially creating a list of files of size n
+
     Args:
       suffix(str): suffix if the file name to be found
       path(str): path of the file system

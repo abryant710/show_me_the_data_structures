@@ -32,6 +32,12 @@ def is_user_in_group(user, group):
     """
     Return True if user is in the group, False otherwise.
 
+    Time complexity: O(n)
+    the time complexity is O(n) where n is the number of groups in the hierarchy
+    Space complexity: O(n)
+    since we are using a dictionary to store the cache,
+    the space complexity is O(n) where n is the number of groups in the hierarchy
+
     Args:
       user(str): user name/id
       group(class:Group): group to check user membership against
