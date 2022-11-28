@@ -69,7 +69,7 @@ def included_test():
 def test_01():
     test_cache = LRU_Cache(5)
 
-    assert test_cache.get(1) == -1, print("Fail")
+    assert test_cache.get(1) == -1, print("Failed Test Case 01")
     print("Test Case 1 - Pass")
 
 
@@ -80,7 +80,7 @@ def test_02():
 
     test_cache.set(None, None)
 
-    assert test_cache.get(None) == None, print("Fail")
+    assert test_cache.get(None) == None, print("Failed Test Case 02")
     print("Test Case 2 - Pass")
 
 
@@ -98,9 +98,9 @@ def test_03():
     test_cache.get(200000)
     test_cache.get(-300000)
 
-    assert test_cache.get(100000) == 100000, print("Fail")
-    assert test_cache.get(200000) == 200000, print("Fail")
-    assert test_cache.get(-300000) == -1, print("Fail")
+    assert test_cache.get(100000) == 100000, print("Failed Test Case 03")
+    assert test_cache.get(200000) == 200000, print("Failed Test Case 03")
+    assert test_cache.get(-300000) == -1, print("Failed Test Case 03")
     print("Test Case 3 - Pass")
 
 

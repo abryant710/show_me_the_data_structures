@@ -222,7 +222,7 @@ class HuffmanTree:
 
 
 def included_test():
-    print("\Default Test:\n")
+    print("Default Test:\n")
     a_great_sentence = "The bird is the word"
 
     print("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
